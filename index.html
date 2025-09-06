@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storytelling Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h1>🌙 Once upon a time…</h1>
+    <p>A little star dreamt of touching the ocean waves.</p>
+  </section>
+
+  <section>
+    <p>Every night, it sparkled in the sky, whispering stories to the moon.</p>
+  </section>
+
+  <section>
+    <p>But one night, a gentle breeze carried its light across the horizon.</p>
+  </section>
+
+  <section>
+    <p>✨ And so, the star learned that dreams are journeys, not destinations.</p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      const triggerBottom = window.innerHeight * 0.8;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < triggerBottom) {
+          section.classList.add("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
